@@ -108,6 +108,131 @@
 			</ScaleRuler>
 			<CurrentLevel>1790757481762</CurrentLevel>
 			<ConnectionsId>1790757481757</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1791530037375</Id>
+					<Name><![CDATA[main_people_count]]></Name>
+					<X>-150</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1791530261369</Id>
+					<Name><![CDATA[second_people_count]]></Name>
+					<X>-150</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1791530290484</Id>
+					<Name><![CDATA[pass_people_count]]></Name>
+					<X>-150</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1791530300430</Id>
+					<Name><![CDATA[third_people_count]]></Name>
+					<X>-150</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1791530507787</Id>
+					<Name><![CDATA[current_excel_row]]></Name>
+					<X>-300</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[excel_logs.getLastRowNum(1) + 2;]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1791532348283</Id>
+					<Name><![CDATA[excel_headers]]></Name>
+					<X>-300</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{
+	"runID", // идентификатор прогона: дата и время прогона
+	
+	//кол-во человек, вошедших:
+    "centralCount", // на центральном входе
+    "secondCount", // на входе 2
+    "gikpassCount", //на ГИКпасс
+    "schorsaCount", // на Щорса
+    
+    //среднее время пребывания в системе
+    "centralQueueTimeMean", // на центральном входе
+    "secondQueueTimeMean", // на входе 2
+    "gikpassQueueTimeMean", //на ГИКпасс
+    "schorsaQueueTimeMean", // на Щорса
+    /*
+    //среднее время пребывания в очереди
+    "centralQueueTimeMean", // на центральном входе
+    "secondQueueTimeMean", // на входе 2
+    "gikpassQueueTimeMean", //на ГИКпасс
+    "schorsaQueueTimeMean", // на Щорса
+    
+    //средняя длина очереди
+    "centralQueueSizeMean", //на центральном входе
+    "secondQueueSizeMean", // на входе 2
+    "gikpassQueueSizeMean", //на ГИКпасс
+    "schorsaQueueSizeMean", // на Щорса
+    
+    //среднее время досмотра
+    // в зависимости от типа посетителя
+    */
+}]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+			</Variables>
 			<Connectors>
 				<Connector>
 					<Id>1791445631715</Id>
@@ -685,13 +810,116 @@
 					</Points>
 				</Connector>
 			</Connectors>
+			<Events>
+				<Event>
+					<Id>1791529114893</Id>
+					<Name><![CDATA[excel_write]]></Name>
+					<X>-300</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<Id>1791529114891</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1791532800000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[10]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[//значения для всех столбцов
+Object[] values = {
+    //дата и время прогона
+	new Date(), 
+	//кол-во вошедших в систему
+	main_people_count,
+	second_people_count,
+	pass_people_count,
+	third_people_count,
+	
+	//среднее время пребывания в системе
+	mainTMEnd.distribution.mean(),
+	secondTMEnd.distribution.mean(),
+	passTMEnd.distribution.mean(),
+	thirdTMEnd.distribution.mean(),
+};
+
+//проверяем кол-во столбцов и заголовков
+if (values.length == excel_headers.size()){
+    //заполняем столбцы Excel
+	for (int i = 0; i < excel_headers.size(); i++) {
+	    // Записываем значение в i-й столбец на первом листе
+	    excel_logs.setCellValue(values[i].toString(), 1, current_excel_row, i+1);
+	}
+	current_excel_row++; //увеличиваем номер строки для следующей записи
+    excel_logs.writeFile(); // сохраняем все изменения
+}
+else{ 
+	traceln("Невозможно записать файл статистики, кол-во заголовков и значений разное!");
+}]]></Action>
+				</Event>
+				<Event>
+					<Id>1791532239603</Id>
+					<Name><![CDATA[fill_excel_headers]]></Name>
+					<X>-300</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<Id>1791532239601</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1791532800000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[//если файл пустой, заполняем заголовки
+if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs")){
+    traceln("empty");
+	for (int i = 0; i < excel_headers.size(); i++) {
+		 // Записываем заголовок в i-й столбец на первом листе
+		 excel_logs.setCellValue(excel_headers.get(i), 1, 1, i+1);
+		}
+}
+]]></Action>
+				</Event>
+			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1791453369490</Id>
 					<Name><![CDATA[main_delay]]></Name>
-					<X>-130</X><Y>40</Y>
+					<X>-150</X><Y>40</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -703,7 +931,7 @@
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1791453383138</Id>
 					<Name><![CDATA[second_delay]]></Name>
-					<X>-130</X><Y>60</Y>
+					<X>-150</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -715,7 +943,7 @@
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1791453389417</Id>
 					<Name><![CDATA[pass_delay]]></Name>
-					<X>-130</X><Y>80</Y>
+					<X>-150</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -727,7 +955,7 @@
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1791453392135</Id>
 					<Name><![CDATA[third_delay]]></Name>
-					<X>-130</X><Y>100</Y>
+					<X>-150</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -739,7 +967,7 @@
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1791453448064</Id>
 					<Name><![CDATA[shared_delay]]></Name>
-					<X>-130</X><Y>20</Y>
+					<X>-150</X><Y>20</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -885,6 +1113,24 @@
 					<Title><![CDATA[main_data]]></Title>
 				</HistogramData>
 			</AnalysisData>
+			<Connectivity>
+				<ExcelFile>
+					<Id>1791529525374</Id>
+					<Name><![CDATA[excel_logs]]></Name>
+					<X>-300</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ResourceReference>
+						<PackageName><![CDATA[gikkon]]></PackageName>
+						<ClassName><![CDATA[excel_logs.xlsx]]></ClassName>
+					</ResourceReference>
+					<SaveInSnapshot>false</SaveInSnapshot>
+					<LoadOnStartup>true</LoadOnStartup>
+					<SaveOnDispose>true</SaveOnDispose>
+				</ExcelFile>
+			</Connectivity>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1790757481757</Id>
@@ -1203,15 +1449,27 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[main_people_count+=1]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[second_people_count+=1]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit3]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[pass_people_count+=1]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit4]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[third_people_count+=1]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit5]]></Name>
@@ -5423,7 +5681,7 @@
     			<BarChart>
 					<Id>1791446235360</Id>
 					<Name><![CDATA[chart]]></Name>
-					<X>0</X><Y>230</Y>
+					<X>0</X><Y>270</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5445,14 +5703,14 @@
 					</RecurrenceProperties>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>300</Width>
-					<Height>180</Height>
+					<Height>160</Height>
 					<BackgroundColor/>
 					<BorderColor/>
 					<ChartArea>
 						<XOffset>35</XOffset>
 						<YOffset>30</YOffset>
 						<Width>115</Width>
-						<Height>120</Height>
+						<Height>100</Height>
 						<BackgroundColor>-1</BackgroundColor>
 						<BorderColor>-16777216</BorderColor>
 						<GridColor>-12566464</GridColor>
@@ -5503,7 +5761,7 @@
     			<BarChart>
 					<Id>1791446710857</Id>
 					<Name><![CDATA[chart1]]></Name>
-					<X>0</X><Y>400</Y>
+					<X>0</X><Y>420</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5583,7 +5841,7 @@
 				<Text>
 					<Id>1791456447435</Id>
 					<Name><![CDATA[text]]></Name>
-					<X>10</X><Y>230</Y>
+					<X>10</X><Y>270</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5604,7 +5862,7 @@
 				<Text>
 					<Id>1791456505285</Id>
 					<Name><![CDATA[text1]]></Name>
-					<X>10</X><Y>410</Y>
+					<X>10</X><Y>430</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5619,6 +5877,28 @@
 						<Name>Times New Roman</Name>
 						<Size>18</Size>
 						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1791531799140</Id>
+					<Name><![CDATA[text15]]></Name>
+					<X>340</X><Y>270</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Сейчас 7 утра время делать деньги]]></Text>
+					<TextCode><![CDATA[String.format("Время %02d:%02d", getHourOfDay(), getMinute())]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>16</Size>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
@@ -6094,11 +6374,11 @@
 				<RealTimeScale>1.0</RealTimeScale>
 			</PresentationProperties>
 			<ModelTimeProperties>
-				<StopOption><![CDATA[Never]]></StopOption>
-				<InitialDate><![CDATA[1790726400000]]></InitialDate>
+				<StopOption><![CDATA[Stop at specified date]]></StopOption>
+				<InitialDate><![CDATA[1787997600000]]></InitialDate>
 				<InitialTime><![CDATA[0.0]]></InitialTime>
-				<FinalDate><![CDATA[1793318400000]]></FinalDate>
-				<FinalTime><![CDATA[100.0]]></FinalTime>
+				<FinalDate><![CDATA[1788033600000]]></FinalDate>
+				<FinalTime><![CDATA[600.0]]></FinalTime>
 			</ModelTimeProperties>
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
@@ -6113,6 +6393,12 @@
 		<Resource>
 			<Id>1790759396488</Id>
 			<Path><![CDATA[3d/officeworker.dae]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Id>1791531658212</Id>
+			<Path><![CDATA[excel_logs.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
