@@ -904,7 +904,6 @@ else{
 					</Properties>
 					<Action><![CDATA[//если файл пустой, заполняем заголовки
 if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs")){
-    traceln("empty");
 	for (int i = 0; i < excel_headers.size(); i++) {
 		 // Записываем заголовок в i-й столбец на первом листе
 		 excel_logs.setCellValue(excel_headers.get(i), 1, 1, i+1);
