@@ -11,6 +11,28 @@
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[gikkon]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Minute]]></ModelTimeUnit>
+	<OptionLists>
+		<OptionList>
+			<Id>1792413902233</Id>
+			<Name><![CDATA[EntranceType]]></Name>
+			<Option>
+				<Id>1792413902403</Id>
+				<Name><![CDATA[MainEntrance]]></Name>
+			</Option>
+			<Option>
+				<Id>1792413911080</Id>
+				<Name><![CDATA[Second]]></Name>
+			</Option>
+			<Option>
+				<Id>1792413936252</Id>
+				<Name><![CDATA[Pass]]></Name>
+			</Option>
+			<Option>
+				<Id>1792413956560</Id>
+				<Name><![CDATA[Third]]></Name>
+			</Option>
+		</OptionList>
+	</OptionLists>
 	<Folders>
 	</Folders>
 	<ActiveObjectClasses>
@@ -1217,6 +1239,12 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 								<Code><![CDATA[passWait]]></Code>
 							</Value>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[EntranceType.Pass]]></Code>
+							</Value>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -1292,6 +1320,12 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 							<Name><![CDATA[participantsLocation]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[thirdWait]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[EntranceType.Third]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -1371,6 +1405,12 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 								<Code><![CDATA[secondWait]]></Code>
 							</Value>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[EntranceType.Second]]></Code>
+							</Value>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -1446,6 +1486,12 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 							<Name><![CDATA[participantsLocation]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[mainWait]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[EntranceType.MainEntrance]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -4242,6 +4288,28 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792414246323</Id>
+					<Name><![CDATA[type]]></Name>
+					<X>30</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1792414246321</Id>
+							<Label><![CDATA[Тип входа]]></Label>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<Ports>
 				<Port>
@@ -4627,8 +4695,8 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 			</Connectors>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[boolean]]></ReturnType>
 					<Id>1792405272575</Id>
 					<Name><![CDATA[change_queue_check]]></Name>
 					<X>30</X><Y>210</Y>
@@ -4636,9 +4704,25 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[
+					<Parameter>
+						<Name><![CDATA[participant]]></Name>
+						<Type><![CDATA[Participant]]></Type>
+					</Parameter>
+					<Body><![CDATA[time = this.distribution.mean();
 
-if (queue.distribution.mean() )]]></Body>
+main_moving_time = ;
+second_moving_time = ;
+pass_moving_time = ;
+third_moving_time = ;
+
+main_time = main.main.queue.distribution.mean();  
+pass_time = main.pass.queue.distribution.mean();
+second_time = main.second.queue.distribution.mean();
+third_time = main.third.queue.distribution.mean();    
+
+if (queue.distribution.mean() ){
+	return true;
+}]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
