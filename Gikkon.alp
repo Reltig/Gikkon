@@ -36,6 +36,18 @@
 				<Name><![CDATA[Default]]></Name>
 			</Option>
 		</OptionList>
+		<OptionList>
+			<Id>1792668341454</Id>
+			<Name><![CDATA[ParticipantType]]></Name>
+			<Option>
+				<Id>1792668341455</Id>
+				<Name><![CDATA[Main]]></Name>
+			</Option>
+			<Option>
+				<Id>1792668341456</Id>
+				<Name><![CDATA[Second]]></Name>
+			</Option>
+		</OptionList>
 	</OptionLists>
 	<Folders>
 	</Folders>
@@ -706,7 +718,11 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return shared_delay();]]></Body>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Participant]]></Type>
+					</Parameter>
+					<Body><![CDATA[return shared_delay(agent);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -718,7 +734,11 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return shared_delay();]]></Body>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Participant]]></Type>
+					</Parameter>
+					<Body><![CDATA[return shared_delay(agent);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -730,7 +750,11 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return shared_delay();]]></Body>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Participant]]></Type>
+					</Parameter>
+					<Body><![CDATA[return shared_delay(agent);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -742,7 +766,11 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return shared_delay();]]></Body>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Participant]]></Type>
+					</Parameter>
+					<Body><![CDATA[return shared_delay(agent);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -754,7 +782,13 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return triangular( 0.5, 1, 1.5 );]]></Body>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Participant]]></Type>
+					</Parameter>
+					<Body><![CDATA[if (agent.type == ParticipantType.Main)
+return triangular( 0.5, 1, 1.5 );
+return triangular( 0.5, 1, 1.5 );]]></Body>
 				</Function>
 			</Functions>
 			<Connectivity>
@@ -1222,7 +1256,7 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 						<Parameter>
 							<Name><![CDATA[distribution]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[pass_delay()]]></Code>
+								<Code><![CDATA[pass_delay(agent)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1305,7 +1339,7 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 						<Parameter>
 							<Name><![CDATA[distribution]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[third_delay()]]></Code>
+								<Code><![CDATA[third_delay(agent)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1388,7 +1422,7 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 						<Parameter>
 							<Name><![CDATA[distribution]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[second_delay()]]></Code>
+								<Code><![CDATA[second_delay(agent)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1471,7 +1505,7 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 						<Parameter>
 							<Name><![CDATA[distribution]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[main_delay()]]></Code>
+								<Code><![CDATA[main_delay(agent)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3692,6 +3726,208 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+    			<BarChart>
+					<Id>1792670861828</Id>
+					<Name><![CDATA[chart4]]></Name>
+					<X>500</X><Y>640</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1792670861826</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1792483200000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>290</Width>
+					<Height>180</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>30</XOffset>
+						<YOffset>30</YOffset>
+						<Width>100</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>EAST</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>150</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1792670861822</Id>
+					<Expression><![CDATA[main.mainParticipantsTMDelay.mean()]]></Expression>
+					<Color>-60269</Color>
+						<Title><![CDATA[Центральный вход]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1792670861823</Id>
+					<Expression><![CDATA[second.mainParticipantsTMDelay.mean()]]></Expression>
+					<Color>-29696</Color>
+						<Title><![CDATA[Вход 2]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1792670861824</Id>
+					<Expression><![CDATA[pass.mainParticipantsTMDelay.mean()]]></Expression>
+					<Color>-12799119</Color>
+						<Title><![CDATA[Вход гикпасс]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1792670861825</Id>
+					<Expression><![CDATA[third.mainParticipantsTMDelay.mean()]]></Expression>
+					<Color>-9807155</Color>
+						<Title><![CDATA[Вход на Щорса]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleType>AUTO</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
+    			<BarChart>
+					<Id>1792671148464</Id>
+					<Name><![CDATA[chart5]]></Name>
+					<X>840</X><Y>640</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1792671148462</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1792483200000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>290</Width>
+					<Height>180</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>30</XOffset>
+						<YOffset>30</YOffset>
+						<Width>100</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>EAST</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>150</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1792671148458</Id>
+					<Expression><![CDATA[main.secondParticipantsTMDelay.mean()]]></Expression>
+					<Color>-60269</Color>
+						<Title><![CDATA[Центральный вход]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1792671148459</Id>
+					<Expression><![CDATA[second.secondParticipantsTMDelay.mean()]]></Expression>
+					<Color>-29696</Color>
+						<Title><![CDATA[Вход 2]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1792671148460</Id>
+					<Expression><![CDATA[pass.secondParticipantsTMDelay.mean()]]></Expression>
+					<Color>-12799119</Color>
+						<Title><![CDATA[Вход гикпасс]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1792671148461</Id>
+					<Expression><![CDATA[third.secondParticipantsTMDelay.mean()]]></Expression>
+					<Color>-9807155</Color>
+						<Title><![CDATA[Вход на Щорса]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleType>AUTO</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
+				<Text>
+					<Id>1792671178302</Id>
+					<Name><![CDATA[text4]]></Name>
+					<X>520</X><Y>650</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Среднее время в очереди тип 1]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>18</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1792671188780</Id>
+					<Name><![CDATA[text5]]></Name>
+					<X>860</X><Y>650</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Среднее время в очереди тип 2]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>18</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -3884,6 +4120,7 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 		<ActiveObjectClass>
 			<Id>1790759343958</Id>
 			<Name><![CDATA[Participant]]></Name>
+			<StartupCode><![CDATA[type = randomFrom(ParticipantType.class);]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1790759343963</Id>
@@ -4004,6 +4241,27 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 							<Code><![CDATA[EntranceType.Default]]></Code>
 						</InitialValue>
 					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792668358738</Id>
+					<Name><![CDATA[type]]></Name>
+					<X>20</X><Y>75</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[ParticipantType]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1792668358736</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
 				</Variable>
 			</Variables>
 			<AgentLinks>
@@ -4231,6 +4489,10 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
+						<MethodArgument>
+							<Name><![CDATA[agent]]></Name>
+							<Type><![CDATA[Participant]]></Type>
+						</MethodArgument>
 						<ParameterEditor>
 							<Id>1792065970293</Id>
 							<Label><![CDATA[Время задержки]]></Label>
@@ -4788,7 +5050,100 @@ else if (type == EntranceType.Third){
 }
 return participant.next_entrance_type != EntranceType.Default;]]></Body>
 				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1792670615868</Id>
+					<Name><![CDATA[updateDelayTMDataset]]></Name>
+					<X>690</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[type]]></Name>
+						<Type><![CDATA[ParticipantType]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[measure]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Body><![CDATA[if (type == ParticipantType.Main)
+mainParticipantsTMDelay.add(measure);
+else if (type == ParticipantType.Second)
+secondParticipantsTMDelay.add(measure);]]></Body>
+				</Function>
 			</Functions>
+			<AnalysisData>
+    			<HistogramData>
+					<Id>1792670042760</Id>
+					<Name><![CDATA[mainParticipantsTMDelay]]></Name>
+					<X>690</X><Y>420</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1792670042758</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1792742400000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<Value><![CDATA[0]]></Value>
+					<NumberOfIntervals>100</NumberOfIntervals>
+					<MinMaxAutodetect>true</MinMaxAutodetect>
+					<RangeMinExpression><![CDATA[0]]></RangeMinExpression>
+					<RangeMaxExpression><![CDATA[1]]></RangeMaxExpression>
+					<InitialIntervalSize><![CDATA[0.1]]></InitialIntervalSize>
+					<CalculateCDF>true</CalculateCDF>
+					<CalculatePercentiles>false</CalculatePercentiles>
+					<LowPercent>10</LowPercent>
+					<HighPercent>10</HighPercent>
+					<Title><![CDATA[]]></Title>
+				</HistogramData>
+    			<HistogramData>
+					<Id>1792670671459</Id>
+					<Name><![CDATA[secondParticipantsTMDelay]]></Name>
+					<X>690</X><Y>440</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1792670671457</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1792742400000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<Value><![CDATA[0]]></Value>
+					<NumberOfIntervals>100</NumberOfIntervals>
+					<MinMaxAutodetect>true</MinMaxAutodetect>
+					<RangeMinExpression><![CDATA[0]]></RangeMinExpression>
+					<RangeMaxExpression><![CDATA[1]]></RangeMaxExpression>
+					<InitialIntervalSize><![CDATA[0.1]]></InitialIntervalSize>
+					<CalculateCDF>true</CalculateCDF>
+					<CalculatePercentiles>false</CalculatePercentiles>
+					<LowPercent>10</LowPercent>
+					<HighPercent>10</HighPercent>
+					<Title><![CDATA[]]></Title>
+				</HistogramData>
+			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1792065873820</Id>
@@ -5560,7 +5915,7 @@ return participant.next_entrance_type != EntranceType.Default;]]></Body>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[distribution()]]></Code>
+								<Code><![CDATA[distribution(agent)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -5815,6 +6170,9 @@ return participant.next_entrance_type != EntranceType.Default;]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[updateDelayTMDataset(agent.type, delayTMEnd.dataset.getY(delayTMEnd.dataset.size() - 1))]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
