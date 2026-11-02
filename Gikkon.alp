@@ -2055,17 +2055,18 @@ return triangular( 40, 80, 120);]]></Body>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (agent.is_changed_queue)
+								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь main на " + agent.next_entrance_type);
-agent.moveTo(nodeSecond1);]]></Code>
+	agent.moveTo(secondWait);
+	}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (agent.is_changed_queue)
+								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь main на " + agent.next_entrance_type);
-agent.moveTo(nodeThird);]]></Code>
+	agent.moveTo(thirdWait);}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2183,17 +2184,19 @@ agent.moveTo(nodeThird);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (agent.is_changed_queue)
+								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь second на " + agent.next_entrance_type);
-agent.moveTo(nodeThird);]]></Code>
+	agent.moveTo(thirdWait);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (agent.is_changed_queue)
+								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь second на " + agent.next_entrance_type);
-agent.moveTo(nodeMain);]]></Code>
+	agent.moveTo(mainWait);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2311,17 +2314,19 @@ agent.moveTo(nodeMain);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (agent.is_changed_queue)
+								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь third на " + agent.next_entrance_type);
-agent.moveTo(nodeSecond2);]]></Code>
+	agent.moveTo(secondWait);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (agent.is_changed_queue)
+								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь third на " + agent.next_entrance_type);
-agent.moveTo(nodeMain);]]></Code>
+	agent.moveTo(mainWait);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4100,7 +4105,7 @@ agent.moveTo(nodeMain);]]></Code>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<FakeNode>false</FakeNode>	
@@ -4117,10 +4122,10 @@ agent.moveTo(nodeMain);]]></Code>
 					<Id>1793198772688</Id>
 					<Name><![CDATA[nodeSecond1]]></Name>
 					<X>705</X><Y>260</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>-83</X><Y>-14</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<FakeNode>false</FakeNode>	
@@ -4165,8 +4170,11 @@ agent.moveTo(nodeMain);]]></Code>
 						<Point><X>-45</X><Y>115</Y><Z>0</Z></Point>
 						<Point><X>-40.305</X><Y>91.77</Y><Z>0</Z></Point>
 						<Point><X>-49.696</X><Y>138.23</Y><Z>0</Z></Point>
+						<Point><X>-137.491</X><Y>207.002</Y><Z>0</Z></Point>
+						<Point><X>-114.237</X><Y>202.43</Y><Z>0</Z></Point>
+						<Point><X>-160.746</X><Y>211.575</Y><Z>0</Z></Point>
 						<Point><X>-165</X><Y>210</Y><Z>0</Z></Point>
-						<Point><X>-140.20600000000002</X><Y>206.801</Y><Z>0</Z></Point>
+						<Point><X>-140.206</X><Y>206.801</Y><Z>0</Z></Point>
 						<Point><X>-165</X><Y>210</Y><Z>0</Z></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
@@ -4210,9 +4218,9 @@ agent.moveTo(nodeMain);]]></Code>
 						<Point><X>-130</X><Y>390</Y><Z>0</Z></Point>
 						<Point><X>-116.481</X><Y>368.971</Y><Z>0</Z></Point>
 						<Point><X>-122.094</X><Y>413.717</Y><Z>0</Z></Point>
-						<Point><X>-120</X><Y>420</Y><Z>0</Z></Point>
-						<Point><X>-127.906</X><Y>396.283</Y><Z>0</Z></Point>
-						<Point><X>-120</X><Y>420</Y><Z>0</Z></Point>
+						<Point><X>-125</X><Y>405</Y><Z>0</Z></Point>
+						<Point><X>-132.906</X><Y>381.283</Y><Z>0</Z></Point>
+						<Point><X>-125</X><Y>405</Y><Z>0</Z></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
 					<SpeedLimit>false</SpeedLimit>
@@ -4226,11 +4234,11 @@ agent.moveTo(nodeMain);]]></Code>
 				<PointNode>
 					<Id>1793198913937</Id>
 					<Name><![CDATA[nodeThird]]></Name>
-					<X>750</X><Y>470</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<X>745</X><Y>465</Y>
+					<Label><X>-80</X><Y>-16</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<FakeNode>false</FakeNode>	
@@ -4271,10 +4279,10 @@ agent.moveTo(nodeMain);]]></Code>
 						<Point><X>73.7</X><Y>10</Y><Z>0</Z></Point>
 						<Point><X>30</X><Y>70</Y><Z>0</Z></Point>
 						<Point><X>6.3</X><Y>70</Y><Z>0</Z></Point>
-						<Point><X>36.063</X><Y>94.254</Y><Z>0</Z></Point>
-						<Point><X>50</X><Y>150</Y><Z>0</Z></Point>
-						<Point><X>43.937</X><Y>125.746</Y><Z>0</Z></Point>
-						<Point><X>56.949</X><Y>174.015</Y><Z>0</Z></Point>
+						<Point><X>34.9029033784546</X><Y>94.51451689227301</Y><Z>0</Z></Point>
+						<Point><X>45</X><Y>145</Y><Z>0</Z></Point>
+						<Point><X>40.0970966215454</X><Y>120.48548310772699</Y><Z>0</Z></Point>
+						<Point><X>51.949</X><Y>169.015</Y><Z>0</Z></Point>
 					</Points>
 					<Bidirectional>true</Bidirectional>
 					<SpeedLimit>false</SpeedLimit>
@@ -4289,10 +4297,10 @@ agent.moveTo(nodeMain);]]></Code>
 					<Id>1793198911425</Id>
 					<Name><![CDATA[nodeSecond2]]></Name>
 					<X>700</X><Y>320</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>-78</X><Y>22</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<FakeNode>false</FakeNode>	
@@ -4411,6 +4419,22 @@ agent.moveTo(nodeMain);]]></Code>
 					<FillMaterial>null</FillMaterial>
 					<LineStyle>DASHED</LineStyle>
 					<AttractorsLayout>random</AttractorsLayout>
+
+			<Presentation>
+				<Attractor>
+					<Id>1793645324646</Id>
+					<Name><![CDATA[attractor21]]></Name>
+					<X>870</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>	
+				</Attractor>
+			</Presentation>
+
 					<Sloped>false</Sloped>
 					<Slope>
 						<Id>1790759460070</Id>
@@ -4881,6 +4905,22 @@ agent.moveTo(nodeMain);]]></Code>
 					<FillMaterial>null</FillMaterial>
 					<LineStyle>DASHED</LineStyle>
 					<AttractorsLayout>random</AttractorsLayout>
+
+			<Presentation>
+				<Attractor>
+					<Id>1793645271964</Id>
+					<Name><![CDATA[attractor14]]></Name>
+					<X>746</X><Y>467</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Rotation>30.0</Rotation>	
+				</Attractor>
+			</Presentation>
+
 					<Sloped>false</Sloped>
 					<Slope>
 						<Id>1790760674281</Id>
@@ -5003,6 +5043,34 @@ agent.moveTo(nodeMain);]]></Code>
 					<FillMaterial>null</FillMaterial>
 					<LineStyle>DASHED</LineStyle>
 					<AttractorsLayout>random</AttractorsLayout>
+
+			<Presentation>
+				<Attractor>
+					<Id>1793645291646</Id>
+					<Name><![CDATA[attractor15]]></Name>
+					<X>700</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>	
+				</Attractor>
+				<Attractor>
+					<Id>1793645296144</Id>
+					<Name><![CDATA[attractor20]]></Name>
+					<X>705</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>	
+				</Attractor>
+			</Presentation>
+
 					<Sloped>false</Sloped>
 					<Slope>
 						<Id>1790760413308</Id>
@@ -6200,78 +6268,6 @@ agent.moveTo(nodeMain);]]></Code>
 			</Connectors>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[boolean]]></ReturnType>
-					<Id>1792405272575</Id>
-					<Name><![CDATA[check_queue_time]]></Name>
-					<X>30</X><Y>240</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Parameter>
-						<Name><![CDATA[participant]]></Name>
-						<Type><![CDATA[Participant]]></Type>
-					</Parameter>
-					<Body><![CDATA[//допустимая разница между временем ожидания
-//в текущей очереди и временем ожидания в очереди
-//у другого входа плюс время на путь до другого входа
-var epsilon = 10.0; //в минутах
-
-//время ходьбы между входами в минутах
-var main_second_walk_time = 6.0;
-var second_third_walk_time = 17.0;
-var main_third_walk_time = 23.0;
-
-//среднее время пребывания в текущей очереди
-var time = queueTMEnd.distribution.mean();
-//среднее время пребывания в очередях:
-var main_time = main.main.queueTMEnd.distribution.mean();  //на главном входе
-var second_time = main.second.queueTMEnd.distribution.mean();//на втором
-var third_time = main.third.queueTMEnd.distribution.mean();  // на третьем(на Щорса)
-
-//выгода от смены очереди у главного входа (в минутах)
-var main_to_second_profit = time - (main_second_walk_time + second_time);//на второй
-var main_to_third_profit = time - (main_third_walk_time + third_time);//на третий
-
-//выгода от смены очереди у второго входа (в минутах)
-var second_to_main_profit = time - (main_second_walk_time + main_time); //на главный
-var second_to_third_profit = time - (second_third_walk_time + third_time);//на третий
-
-//выгода от смены очереди у третьего входа (в минутах)
-var third_to_main_profit = time - (main_third_walk_time + main_time);//на главный
-var third_to_second_profit = time - (second_third_walk_time + second_time);//на второй
-
-//если стоим у главного:
-if (type == EntranceType.MainEntrance){  
-	if(main_to_second_profit >= epsilon && main_to_second_profit > main_to_third_profit){
-		participant.next_entrance_type = EntranceType.Second;
-	}	
-	if(main_to_third_profit >= epsilon && main_to_third_profit >= main_to_second_profit){
-		participant.next_entrance_type = EntranceType.Third;
-	}	
-}
-//если стоим у второго:
-else if (type == EntranceType.Second){  
-	if(second_to_main_profit >= epsilon && second_to_main_profit > second_to_third_profit ){
-		participant.next_entrance_type = EntranceType.MainEntrance;
-	}	
-	if(second_to_third_profit >= epsilon && second_to_third_profit >= second_to_main_profit){
-		participant.next_entrance_type = EntranceType.Third;
-	}	
-}
-//если стоим у третьего:
-else if (type == EntranceType.Third){  
-	if(third_to_main_profit >= epsilon && third_to_main_profit > third_to_second_profit ){
-		participant.next_entrance_type = EntranceType.MainEntrance;
-	}	
-	if(third_to_second_profit >= epsilon && third_to_second_profit  >= third_to_main_profit){
-		participant.next_entrance_type = EntranceType.Second;
-	}	
-}
-return participant.next_entrance_type != EntranceType.Default;]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1792670615868</Id>
@@ -6354,8 +6350,8 @@ return participant.next_entrance_type != EntranceType.Default;]]></Body>
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 					<ReturnType><![CDATA[boolean]]></ReturnType>
 					<Id>1793642709011</Id>
-					<Name><![CDATA[check_queue_time_with_walk]]></Name>
-					<X>30</X><Y>390</Y>
+					<Name><![CDATA[check_queue_time]]></Name>
+					<X>30</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7405,9 +7401,12 @@ boolean length_matters =
 	main.StrategyQueueChoice == EvaluationQueue.QueueLength;
 	
 if (!agent.is_changed_queue){
-	if (( time_matters || walk_time_matters)
-	&& check_queue_time(agent, walk_time_matters) )
-	|| (length_matters && check_queue_length(agent)))
+	if (
+		( (time_matters || walk_time_matters)
+			&& check_queue_time(agent, walk_time_matters)
+		 )
+		 ||(length_matters && check_queue_length(agent))
+	    )
 		agent.is_changed_queue = true;
     	queue.release(agent);
 }]]></Code>
