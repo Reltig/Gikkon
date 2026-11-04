@@ -238,10 +238,25 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793732145631</Id>
+					<Name><![CDATA[changed_queue_count]]></Name>
+					<X>-150</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1793195863271</Id>
 					<Name><![CDATA[StrategyQueueChoice]]></Name>
-					<X>-210</X><Y>370</Y>
+					<X>-210</X><Y>520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -266,7 +281,7 @@
 				<Variable Class="Parameter">
 					<Id>1793196772863</Id>
 					<Name><![CDATA[AcceptableQueueLength]]></Name>
-					<X>-210</X><Y>400</Y>
+					<X>-210</X><Y>550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -290,7 +305,7 @@
 				<Variable Class="Parameter">
 					<Id>1793197259576</Id>
 					<Name><![CDATA[QueueSizeRatio]]></Name>
-					<X>-210</X><Y>430</Y>
+					<X>-210</X><Y>580</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -304,6 +319,82 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1793197259574</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793729523746</Id>
+					<Name><![CDATA[WalkTimeMainSecond]]></Name>
+					<Description><![CDATA[время ходьбы от главного до второго входа в минутах]]></Description>
+					<X>-150</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[6]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793729523744</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793729644248</Id>
+					<Name><![CDATA[WalkTimeMainThird]]></Name>
+					<Description><![CDATA[время ходьбы от главного до третьего входа в минутах]]></Description>
+					<X>-150</X><Y>370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[23]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793729644246</Id>
+							<Label><![CDATA[WalkTimeMainThird]]></Label>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793729743280</Id>
+					<Name><![CDATA[WalkTimeSecondThird]]></Name>
+					<Description><![CDATA[время ходьбы от второго до третьего входа в минутах]]></Description>
+					<X>-150</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[17]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793729743278</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -333,6 +424,9 @@
     "gikpassCount", //на ГИКпасс
     "schorsaCount", // на Щорса
     
+    //суммарное число человек, сменивших очередь
+    "changedQueueTotal", 
+    
     //среднее время пребывания в очереди
     "centralQueueTimeMean", // на центральном входе
     "secondQueueTimeMean", // на входе 2
@@ -346,10 +440,8 @@
     "schorsaQueueSizeMean", // на Щорса
 
     //среднее время досмотра
-    "centralCheckTimeMean",
-    "secondCheckTimeMean",
-    "gikpassCheckTimeMean",
-    "schorsaCheckTimeMean",
+    "checkTimeMeanOrdinary", //обычного посетителя
+    "checkTimeMeanCosplayer", //косплеера
     
     //среднее время пребывания в системе
     "centralQueueTimeMean", // на центральном входе
@@ -366,7 +458,7 @@
 				<Connector>
 					<Id>1791445631715</Id>
 					<Name><![CDATA[connector9]]></Name>
-					<X>125</X><Y>40</Y>
+					<X>125</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -399,7 +491,7 @@
 				<Connector>
 					<Id>1792059836293</Id>
 					<Name><![CDATA[connector17]]></Name>
-					<X>320</X><Y>370</Y>
+					<X>320</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -427,14 +519,14 @@
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>-160</X><Y>0</Y></Point>
-						<Point><X>-165</X><Y>-270</Y></Point>
+						<Point><X>-160</X><Y>-270</Y></Point>
 						<Point><X>-175</X><Y>-270</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1792065878979</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>300</X><Y>210</Y>
+					<X>300</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -469,7 +561,7 @@
 				<Connector>
 					<Id>1792065878981</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>605</X><Y>130</Y>
+					<X>610</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -496,15 +588,15 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>80</Y></Point>
-						<Point><X>-265</X><Y>80</Y></Point>
+						<Point><X>-30</X><Y>0</Y></Point>
+						<Point><X>-30</X><Y>80</Y></Point>
+						<Point><X>-270</X><Y>80</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1792066456456</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>290</X><Y>110</Y>
+					<X>290</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -539,7 +631,7 @@
 				<Connector>
 					<Id>1792066488279</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>280</X><Y>40</Y>
+					<X>280</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -572,7 +664,7 @@
 				<Connector>
 					<Id>1793194571713</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>605</X><Y>130</Y>
+					<X>610</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -599,15 +691,15 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>-10</Y></Point>
-						<Point><X>-75</X><Y>-10</Y></Point>
+						<Point><X>-30</X><Y>0</Y></Point>
+						<Point><X>-30</X><Y>-10</Y></Point>
+						<Point><X>-80</X><Y>-10</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1793194571715</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>510</X><Y>40</Y>
+					<X>510</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -641,7 +733,7 @@
 				<Connector>
 					<Id>1793194780715</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>530</X><Y>40</Y>
+					<X>530</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -679,7 +771,7 @@
 				<Connector>
 					<Id>1793195236572</Id>
 					<Name><![CDATA[connector8]]></Name>
-					<X>530</X><Y>60</Y>
+					<X>530</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -707,16 +799,16 @@
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>70</X><Y>0</Y></Point>
-						<Point><X>70</X><Y>-105</Y></Point>
-						<Point><X>-325</X><Y>-110</Y></Point>
-						<Point><X>-325</X><Y>310</Y></Point>
+						<Point><X>70</X><Y>-100</Y></Point>
+						<Point><X>-330</X><Y>-100</Y></Point>
+						<Point><X>-330</X><Y>310</Y></Point>
 						<Point><X>-210</X><Y>310</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1793635839731</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>390</X><Y>110</Y>
+					<X>390</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -749,7 +841,7 @@
 				<Connector>
 					<Id>1793635882049</Id>
 					<Name><![CDATA[connector10]]></Name>
-					<X>410</X><Y>190</Y>
+					<X>410</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -778,13 +870,13 @@
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>80</X><Y>0</Y></Point>
 						<Point><X>80</X><Y>-60</Y></Point>
-						<Point><X>195</X><Y>-60</Y></Point>
+						<Point><X>200</X><Y>-60</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1793636020345</Id>
 					<Name><![CDATA[connector11]]></Name>
-					<X>410</X><Y>110</Y>
+					<X>410</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -821,7 +913,7 @@
 				<Connector>
 					<Id>1793636057728</Id>
 					<Name><![CDATA[connector16]]></Name>
-					<X>410</X><Y>130</Y>
+					<X>410</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -858,7 +950,7 @@
 				<Connector>
 					<Id>1793636741294</Id>
 					<Name><![CDATA[connector12]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>0</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -891,7 +983,7 @@
 				<Connector>
 					<Id>1793636760416</Id>
 					<Name><![CDATA[connector13]]></Name>
-					<X>450</X><Y>370</Y>
+					<X>450</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -928,7 +1020,7 @@
 				<Connector>
 					<Id>1793636895152</Id>
 					<Name><![CDATA[connector14]]></Name>
-					<X>450</X><Y>450</Y>
+					<X>450</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -957,13 +1049,13 @@
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>110</X><Y>0</Y></Point>
 						<Point><X>110</X><Y>-320</Y></Point>
-						<Point><X>155</X><Y>-320</Y></Point>
+						<Point><X>160</X><Y>-320</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1793636914024</Id>
 					<Name><![CDATA[connector15]]></Name>
-					<X>450</X><Y>390</Y>
+					<X>450</X><Y>440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1040,11 +1132,14 @@ Object[] values = {
 	pass_people_count,
 	third_people_count,
 	
+	//кол-во сменивших очередь
+	changed_queue_count,
+	
 	//среднее время пребывания в очереди
 	main.queueTMEnd.distribution.mean(),
 	second.queueTMEnd.distribution.mean(),
 	pass.queueTMEnd.distribution.mean(),
-    third.queueTMEnd.distribution.mean(),
+	third.queueTMEnd.distribution.mean(),
     
     //средняя длина очереди
     main.queue.statsSize.mean(),
@@ -1054,9 +1149,7 @@ Object[] values = {
 
     //среднее время досмотра
     main.delayTMEnd.distribution.mean(),
-    second.delayTMEnd.distribution.mean(),
-    pass.delayTMEnd.distribution.mean(),
-    third.delayTMEnd.distribution.mean(),
+    main.cosplayParticipantsTMDelay.mean(),
     
     //среднее время пребывания в системе
 	main.generalTMEnd.distribution.mean(),
@@ -1226,7 +1319,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<AgentLink>
 					<Id>1790757481757</Id>
 					<Name><![CDATA[connections]]></Name>
-					<X>50</X><Y>-50</Y>
+					<X>50</X><Y>0</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1248,7 +1341,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1790758135845</Id>
 					<Name><![CDATA[source]]></Name>
-					<X>10</X><Y>30</Y>
+					<X>10</X><Y>80</Y>
 					<Label><X>-5</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1476,7 +1569,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1790758162659</Id>
 					<Name><![CDATA[distribution]]></Name>
-					<X>115</X><Y>30</Y>
+					<X>115</X><Y>80</Y>
 					<Label><X>-20</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1597,7 +1690,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1790758511585</Id>
 					<Name><![CDATA[sink]]></Name>
-					<X>605</X><Y>120</Y>
+					<X>610</X><Y>170</Y>
 					<Label><X>-8</X><Y>-13</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1649,7 +1742,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1792065878717</Id>
 					<Name><![CDATA[pass]]></Name>
-					<X>290</X><Y>190</Y>
+					<X>290</X><Y>240</Y>
 					<Label><X>0</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1668,6 +1761,9 @@ return triangular( 40, 80, 120);]]></Body>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[poolSize]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[2]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[distribution]]></Name>
@@ -1729,7 +1825,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1792066307702</Id>
 					<Name><![CDATA[third]]></Name>
-					<X>310</X><Y>350</Y>
+					<X>310</X><Y>400</Y>
 					<Label><X>0</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1812,7 +1908,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1792066453920</Id>
 					<Name><![CDATA[second]]></Name>
-					<X>280</X><Y>90</Y>
+					<X>280</X><Y>140</Y>
 					<Label><X>-10</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1895,7 +1991,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1792066485746</Id>
 					<Name><![CDATA[main]]></Name>
-					<X>270</X><Y>20</Y>
+					<X>270</X><Y>70</Y>
 					<Label><X>0</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1978,7 +2074,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1793194569069</Id>
 					<Name><![CDATA[changeQueueMain]]></Name>
-					<X>500</X><Y>30</Y>
+					<X>500</X><Y>80</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2057,7 +2153,8 @@ return triangular( 40, 80, 120);]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь main на " + agent.next_entrance_type);
-	agent.moveTo(secondWait);
+	agent.moveToInTime(secondWait, WalkTimeMainSecond); 
+	changed_queue_count++;
 	}]]></Code>
 							</Value>
 						</Parameter>
@@ -2066,7 +2163,9 @@ return triangular( 40, 80, 120);]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь main на " + agent.next_entrance_type);
-	agent.moveTo(thirdWait);}]]></Code>
+	agent.moveToInTime(thirdWait, WalkTimeMainThird);
+	changed_queue_count++;
+	}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2107,7 +2206,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1793635838318</Id>
 					<Name><![CDATA[changeQueueSecond]]></Name>
-					<X>380</X><Y>100</Y>
+					<X>380</X><Y>150</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2186,7 +2285,8 @@ return triangular( 40, 80, 120);]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь second на " + agent.next_entrance_type);
-	agent.moveTo(thirdWait);
+	agent.moveToInTime(mainWait, WalkTimeMainSecond);
+	changed_queue_count++;
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -2195,7 +2295,8 @@ return triangular( 40, 80, 120);]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь second на " + agent.next_entrance_type);
-	agent.moveTo(mainWait);
+	agent.moveToInTime(thirdWait,WalkTimeSecondThird);
+	changed_queue_count++;
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -2237,7 +2338,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<EmbeddedObject>
 					<Id>1793636739731</Id>
 					<Name><![CDATA[changeQueueThird]]></Name>
-					<X>420</X><Y>360</Y>
+					<X>420</X><Y>410</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2316,7 +2417,8 @@ return triangular( 40, 80, 120);]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь third на " + agent.next_entrance_type);
-	agent.moveTo(secondWait);
+	agent.moveToInTime(secondWait, WalkTimeSecondThird);
+	changed_queue_count++;
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -2325,7 +2427,8 @@ return triangular( 40, 80, 120);]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (agent.is_changed_queue){
 	traceln("сменил очередь third на " + agent.next_entrance_type);
-	agent.moveTo(mainWait);
+	agent.moveToInTime(mainWait, WalkTimeMainThird);
+	changed_queue_count++;
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -2396,7 +2499,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<RectangleNode>
 					<Id>1790760126600</Id>
 					<Name><![CDATA[passEmployees]]></Name>
-					<X>770</X><Y>170</Y>
+					<X>762.929</X><Y>177.071</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2500,7 +2603,19 @@ return triangular( 40, 80, 120);]]></Body>
 				<Attractor>
 					<Id>1790760275456</Id>
 					<Name><![CDATA[attractor]]></Name>
-					<X>794.749</X><Y>166.46399999999994</Y>
+					<X>805</X><Y>155</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Rotation>225.0</Rotation>	
+				</Attractor>
+				<Attractor>
+					<Id>1793731166119</Id>
+					<Name><![CDATA[attractor22]]></Name>
+					<X>785</X><Y>175</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2527,14 +2642,14 @@ return triangular( 40, 80, 120);]]></Body>
 						<SlopeType>angle</SlopeType>	
 					</Slope>
 
-					<Width>40</Width>
+					<Width>60</Width>
 					<Height>30</Height>
 					<Rotation>315.0</Rotation>
 				</RectangleNode>
 				<RectangleNode>
 					<Id>1790760126639</Id>
 					<Name><![CDATA[passService]]></Name>
-					<X>798.787</X><Y>141.213</Y>
+					<X>805.858</X><Y>134.142</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2638,7 +2753,19 @@ return triangular( 40, 80, 120);]]></Body>
 				<Attractor>
 					<Id>1790760293570</Id>
 					<Name><![CDATA[attractor1]]></Name>
-					<X>774.038</X><Y>144.749</Y>
+					<X>760</X><Y>155</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Rotation>45.0</Rotation>	
+				</Attractor>
+				<Attractor>
+					<Id>1793731174642</Id>
+					<Name><![CDATA[attractor23]]></Name>
+					<X>785</X><Y>135</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2665,14 +2792,14 @@ return triangular( 40, 80, 120);]]></Body>
 						<SlopeType>angle</SlopeType>	
 					</Slope>
 
-					<Width>40</Width>
+					<Width>60</Width>
 					<Height>30</Height>
 					<Rotation>135.0</Rotation>
 				</RectangleNode>
 				<RectangleNode>
 					<Id>1790760126678</Id>
 					<Name><![CDATA[passWait]]></Name>
-					<X>690</X><Y>90</Y>
+					<X>682.929</X><Y>97.071</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2787,7 +2914,7 @@ return triangular( 40, 80, 120);]]></Body>
 						<SlopeType>angle</SlopeType>	
 					</Slope>
 
-					<Width>40</Width>
+					<Width>60</Width>
 					<Height>80</Height>
 					<Rotation>315.0</Rotation>
 				</RectangleNode>
@@ -3990,7 +4117,7 @@ return triangular( 40, 80, 120);]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Среднее время в очереди тип 1]]></Text>
+					<Text><![CDATA[Среднее время в очереди (обычный гость)]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>18</Size>
@@ -4011,7 +4138,7 @@ return triangular( 40, 80, 120);]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Среднее время в очереди тип 2]]></Text>
+					<Text><![CDATA[Среднее время в очереди (косплеер)]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>18</Size>
@@ -4022,7 +4149,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793196828670</Id>
 					<Name><![CDATA[text6]]></Name>
-					<X>-210</X><Y>290</Y>
+					<X>-210</X><Y>440</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4079,12 +4206,12 @@ return triangular( 40, 80, 120);]]></Body>
 						<Point><X>0</X><Y>-30</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-5</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>-30</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>-30</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>-30</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>-55</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>-210</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>-185</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>-210</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>-30</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-30</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>-55</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>-210</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>-185</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-210</Y><Z>0</Z></Point>
 						<Point><X>165</X><Y>-210</Y><Z>0</Z></Point>
 						<Point><X>140</X><Y>-210</Y><Z>0</Z></Point>
 						<Point><X>28.341</X><Y>-22.037</Y><Z>0</Z></Point>
@@ -5094,7 +5221,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793643112014</Id>
 					<Name><![CDATA[text7]]></Name>
-					<X>450</X><Y>355</Y>
+					<X>450</X><Y>405</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5115,7 +5242,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793643150744</Id>
 					<Name><![CDATA[text8]]></Name>
-					<X>452</X><Y>375</Y>
+					<X>452</X><Y>425</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5136,7 +5263,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793643254378</Id>
 					<Name><![CDATA[text9]]></Name>
-					<X>415</X><Y>95</Y>
+					<X>415</X><Y>145</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5157,7 +5284,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793643279303</Id>
 					<Name><![CDATA[text10]]></Name>
-					<X>415</X><Y>118</Y>
+					<X>415</X><Y>168</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5178,7 +5305,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793643305113</Id>
 					<Name><![CDATA[text11]]></Name>
-					<X>535</X><Y>25</Y>
+					<X>535</X><Y>75</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5199,7 +5326,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793643342107</Id>
 					<Name><![CDATA[text12]]></Name>
-					<X>535</X><Y>46</Y>
+					<X>535</X><Y>96</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5214,6 +5341,49 @@ return triangular( 40, 80, 120);]]></Body>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
 						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1793729575918</Id>
+					<Name><![CDATA[rectangle]]></Name>
+					<X>-170</X><Y>290</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>160</Width>
+					<Height>130</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1793729537099</Id>
+					<Name><![CDATA[text13]]></Name>
+					<X>-150</X><Y>300</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>10</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Константы]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
@@ -5432,7 +5602,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
 				<RotateAnimationVertically>false</RotateAnimationVertically>
 				<VelocityCode Class="CodeUnitValue">
-					<Code><![CDATA[10]]></Code>
+					<Code><![CDATA[1]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 				</VelocityCode>
 				<PhysicalLength Class="CodeUnitValue">
@@ -7855,6 +8025,15 @@ if (!agent.is_changed_queue){
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[QueueSizeRatio]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[WalkTimeMainSecond]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[WalkTimeMainThird]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[WalkTimeSecondThird]]></ParameterName>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
