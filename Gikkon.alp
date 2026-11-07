@@ -226,7 +226,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1791530507787</Id>
 					<Name><![CDATA[current_excel_row]]></Name>
-					<X>-300</X><Y>140</Y>
+					<X>-300</X><Y>175</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -256,7 +256,7 @@
 				<Variable Class="Parameter">
 					<Id>1793195863271</Id>
 					<Name><![CDATA[StrategyQueueChoice]]></Name>
-					<X>-210</X><Y>520</Y>
+					<X>-210</X><Y>550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -281,7 +281,7 @@
 				<Variable Class="Parameter">
 					<Id>1793196772863</Id>
 					<Name><![CDATA[AcceptableQueueLength]]></Name>
-					<X>-210</X><Y>550</Y>
+					<X>-210</X><Y>580</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -305,7 +305,7 @@
 				<Variable Class="Parameter">
 					<Id>1793197259576</Id>
 					<Name><![CDATA[QueueSizeRatio]]></Name>
-					<X>-210</X><Y>580</Y>
+					<X>-210</X><Y>610</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -402,10 +402,35 @@
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1794052352900</Id>
+					<Name><![CDATA[TotalParticipants]]></Name>
+					<Description><![CDATA[время ходьбы от второго до третьего входа в минутах]]></Description>
+					<X>-150</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[88000]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1794052352898</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1791532348283</Id>
 					<Name><![CDATA[excel_headers]]></Name>
-					<X>-300</X><Y>110</Y>
+					<X>-300</X><Y>145</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1212,6 +1237,38 @@ if (excel_logs.getLastRowNum("all_runs") <= excel_logs.getFirstRowNum("all_runs"
 }
 ]]></Action>
 				</Event>
+				<Event>
+					<Id>1794053018965</Id>
+					<Name><![CDATA[update_frequency]]></Name>
+					<X>-300</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<Id>1794053018963</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794124800000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[source.set_rate(arrival_frequency((int)time(HOUR)) * TotalParticipants, RateUnits.PER_HOUR)]]></Action>
+				</Event>
 			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -1297,11 +1354,53 @@ return triangular( 20, 25, 30);
 return triangular( 40, 80, 120);]]></Body>
 				</Function>
 			</Functions>
+			<TableFunctions>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1794052699924</Id>
+					<Name><![CDATA[arrival_frequency]]></Name>
+					<X>-300</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>NEAREST</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<Id>1794052699922</Id>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[1.0]]></Argument>
+					<Argument><![CDATA[2.0]]></Argument>
+					<Argument><![CDATA[3.0]]></Argument>
+					<Argument><![CDATA[4.0]]></Argument>
+					<Argument><![CDATA[5.0]]></Argument>
+					<Argument><![CDATA[6.0]]></Argument>
+					<Argument><![CDATA[7.0]]></Argument>
+					<Value><![CDATA[0.05]]></Value>
+					<Value><![CDATA[0.09]]></Value>
+					<Value><![CDATA[0.13]]></Value>
+					<Value><![CDATA[0.16]]></Value>
+					<Value><![CDATA[0.17]]></Value>
+					<Value><![CDATA[0.15]]></Value>
+					<Value><![CDATA[0.13]]></Value>
+					<Value><![CDATA[0.12]]></Value>
+				</TableFunction>
+			</TableFunctions>
 			<Connectivity>
 				<ExcelFile>
 					<Id>1791529525374</Id>
 					<Name><![CDATA[excel_logs]]></Name>
-					<X>-300</X><Y>80</Y>
+					<X>-300</X><Y>115</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4149,7 +4248,7 @@ return triangular( 40, 80, 120);]]></Body>
 				<Text>
 					<Id>1793196828670</Id>
 					<Name><![CDATA[text6]]></Name>
-					<X>-210</X><Y>440</Y>
+					<X>-210</X><Y>470</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5361,7 +5460,7 @@ return triangular( 40, 80, 120);]]></Body>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>160</Width>
-					<Height>130</Height>
+					<Height>160</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-1</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -8034,6 +8133,9 @@ if (!agent.is_changed_queue){
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[WalkTimeSecondThird]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TotalParticipants]]></ParameterName>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
